@@ -25,6 +25,8 @@
 - include_tasks: system/routing.yml
   when: openvpn_route_traffic | bool
 
+- include_tasks: authentication/tls.yml
+
 - include_tasks: core/read-client-files.yml
   when: openvpn_unified_client_profiles
 
@@ -33,8 +35,6 @@
 - include_tasks: authentication/pam.yml
 
 - include_tasks: authentication/simple.yml
-
-- include_tasks: authentication/tls.yml
 
 - import_tasks: core/clients.yml
 
